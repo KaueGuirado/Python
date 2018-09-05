@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Chart</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+  <div id="container" style="height: 400px;"></div>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="http://code.highcharts.com/modules/exporting.js"></script>
+<!-- optional -->
+<script src="http://code.highcharts.com/modules/offline-exporting.js"></script>
+  <script type="text/javascript">
+    $('#container').highcharts({
+    		chart: {
+        type: 'spline'
+    },
+    title: {
+        text: 'Gráfico de Temperatura'
+    },
+    subtitle: {
+        text: 'Com indicador de qualidade de precisão'
+    },
+    xAxis: {
+        type: 'datetime',
+        dateTimeLabelFormats: { // don't display the dummy year
+            month: '%e/%b/\'%y %H:%M',
+            year: '%b'
+        },
+        title: {
+            text: 'Data'
+        }
+    },
+    yAxis: {
+        title: {
+            text: 'Temperatura (°C)'
+        },
+        min: 0
+    },
+    tooltip: {
+        headerFormat: '<b>{series.name}</b><br>',
+        pointFormat: '{point.x:%e/%b %H:%M}: {point.y:.2f} °C'
+    },
+
+    plotOptions: {
+        spline: {
+            marker: {
+                enabled: true
+            }
+        }
+    },
+    
+    credits: {
+      enabled: false
+  	},
+
+  	
+
+    colors: ['#6CF', '#39F', '#06C', '#036', '#000'],
+
+    // Define the data points. All series have a dummy year
+    // of 2017/71 in order to be compared on the same x axis. Note
+    // that in JavaScript, months start at 0 for January, 1 for February etc.
+    series: [{
+        name: "Temperatura",
+        data: [
+        	
+        	[Date.UTC(2018, 1, 13, 16, 30), 21.6853],[Date.UTC(2018, 1, 13, 16, 45), 21.788],[Date.UTC(2018, 1, 13, 17, 0), 21.832],[Date.UTC(2018, 1, 13, 17, 15), 21.808],[Date.UTC(2018, 1, 13, 17, 30), 21.768],[Date.UTC(2018, 1, 13, 17, 45), 21.7133],[Date.UTC(2018, 1, 13, 18, 0), 21.66],[Date.UTC(2018, 1, 13, 18, 15), 21.596],[Date.UTC(2018, 1, 13, 18, 30), 21.5307],[Date.UTC(2018, 1, 13, 18, 45), 21.4493],[Date.UTC(2018, 1, 13, 19, 0), 21.3747],{x: Date.UTC(2018, 1, 13, 19, 15), y: 22.85, marker: { fillColor: '#BF0B23', radius: 4 } },{x: Date.UTC(2018, 1, 13, 19, 30), y: 23.0, marker: { fillColor: '#BF0B23', radius: 4 } },[Date.UTC(2018, 1, 13, 19, 45), 21.0933],[Date.UTC(2018, 1, 13, 20, 0), 21.0],[Date.UTC(2018, 1, 13, 20, 15), 20.9053],[Date.UTC(2018, 1, 13, 20, 30), 20.816],[Date.UTC(2018, 1, 13, 20, 45), 20.72],[Date.UTC(2018, 1, 13, 21, 0), 20.628],[Date.UTC(2018, 1, 13, 21, 15), 20.5253],[Date.UTC(2018, 1, 13, 21, 30), 20.43],[Date.UTC(2018, 1, 13, 21, 45), 20.3147],[Date.UTC(2018, 1, 13, 22, 0), 20.2133],[Date.UTC(2018, 1, 13, 22, 15), 20.114],[Date.UTC(2018, 1, 13, 22, 30), 20.0053],[Date.UTC(2018, 1, 13, 22, 45), 19.9007],[Date.UTC(2018, 1, 13, 23, 0), 19.7953],[Date.UTC(2018, 1, 13, 23, 15), 19.6773],[Date.UTC(2018, 1, 13, 23, 30), 19.5727],[Date.UTC(2018, 1, 13, 23, 45), 19.442],{x: Date.UTC(2018, 1, 14, 0, 0), y: 18.33, marker: { fillColor: '#BF0B23', radius: 4 } },{x: Date.UTC(2018, 1, 14, 0, 15), y: 20.45, marker: { fillColor: '#BF0B23', radius: 4 } },[Date.UTC(2018, 1, 14, 0, 30), 19.0933],[Date.UTC(2018, 1, 14, 0, 45), 18.962],[Date.UTC(2018, 1, 14, 1, 0), 18.8533],[Date.UTC(2018, 1, 14, 1, 15), 18.7267],[Date.UTC(2018, 1, 14, 1, 30), 18.6073],[Date.UTC(2018, 1, 14, 1, 45), 18.5007],[Date.UTC(2018, 1, 14, 2, 0), 18.36],[Date.UTC(2018, 1, 14, 2, 15), 18.2387],[Date.UTC(2018, 1, 14, 2, 30), 18.09],[Date.UTC(2018, 1, 14, 2, 45), 17.9553],[Date.UTC(2018, 1, 14, 3, 0), 17.8333],[Date.UTC(2018, 1, 14, 3, 15), 17.7047],[Date.UTC(2018, 1, 14, 3, 30), 17.5733],[Date.UTC(2018, 1, 14, 3, 45), 17.4713],{x: Date.UTC(2018, 1, 14, 4, 0), y: 16.5, marker: { fillColor: '#BF0B23', radius: 4 } },[Date.UTC(2018, 1, 14, 4, 15), 17.268],[Date.UTC(2018, 1, 14, 4, 30), 17.126],[Date.UTC(2018, 1, 14, 4, 45), 16.9933]
+
+
+        	]
+    }],
+    exporting: {
+        enabled: true
+    }
+	});
+  </script>
+</body>
+</html>

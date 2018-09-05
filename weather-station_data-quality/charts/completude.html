@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Chart</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+<body>
+  <div id="container" class="container"></div>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="http://code.highcharts.com/modules/exporting.js"></script>
+<!-- optional -->
+<script src="http://code.highcharts.com/modules/offline-exporting.js"></script>
+  <script type="text/javascript">
+    $('#container').highcharts({
+    
+    chart: {
+        type: 'bar'
+    },
+    
+    title: {
+        text: null
+    },
+    
+    credits: {
+        enabled: false
+    },
+    
+    yAxis: {
+        min: 0, 
+        max: 100,
+        opposite: true,
+        title: {
+            text: null
+        },
+        plotBands: [{
+            from: 0,
+            to: 100,
+            color: '#606060' // green
+        }]
+    },
+
+    xAxis: {
+        labels: {
+            enabled: false
+        },
+        tickLength: 0
+    },
+
+    series: [{
+        data: [95.92],
+        showInLegend: false,
+        color: '#303030',
+        dataLabels: {
+            enabled: true,
+            borderColor: 'black',
+            format: '{y}%',
+            style: {
+                fontSize: 25,
+                color: 'white'
+            }
+        }
+    }]
+
+});
+
+
+  </script>
+</body>
+</html>
